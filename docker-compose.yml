@@ -1,11 +1,14 @@
-version: '3.1'
+version: '3.8'
 
 services:
-  #db:
-  #  image: mariadb:10.6
-  #  restart: always
-  #  environment:
-  #    MYSQL_ROOT_PASSWORD: notSecureChangeMe
+  db:
+    image: mariadb:10.6
+    restart: always
+    container_name: db_pma
+    environment:
+      MYSQL_ROOT_PASSWORD: "5y54Dm1*."
+    volumes:
+      - ./db_data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin
@@ -15,3 +18,7 @@ services:
       - 9002:80
     environment:
       - PMA_ARBITRARY=1
+    volumes:
+      - ./pma_conifig:/etc/phpmyadmin/conf.d:ro
+      - ./pma_themes/blueberry:/var/www/html/themes/blueberry
+      - ./pma_themes/boodark:/var/www/html/themes/boodark
