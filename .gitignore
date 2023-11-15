@@ -1,0 +1,32 @@
+# Directorios de Docker
+.docker
+docker-compose.override.yml
+*.override.yml
+*.override.yaml
+
+# Archivos de Docker Compose
+docker-compose.yml
+docker-compose.yaml
+
+# Datos de Docker
+*.log
+
+# Carpetas y archivos generados por Docker
+!.dockerignore
+!Dockerfile
+!Dockerfile.prod  # Si tienes un Dockerfile de producción específico
+
+# Imágenes Docker y capas de imágenes
+*.tar
+*.gz
+
+# Carpetas y archivos específicos de aplicaciones Docker
+node_modules/  # Ejemplo para proyectos Node.js
+vendor/        # Ejemplo para proyectos PHP
+
+# Archivos de persistencia de datos (debe ser manejado por volúmenes de Docker)
+db_data/
+
+# Archivos de configuración de Kubernetes si también usas Kubernetes
+k8s/
+
